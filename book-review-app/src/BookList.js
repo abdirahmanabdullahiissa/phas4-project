@@ -30,6 +30,20 @@ const BookList = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  return (
+    <div>
+      <h1>Book List</h1>
+      <ul>
+        {books.map((book) => (
+          <li key={book.id}>
+            {book.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 
   
 
