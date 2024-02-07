@@ -10,11 +10,12 @@ class Book(db.Model, SerializerMixin):
     title = db.Column(db.String(150), unique=True, nullable=False)
     review = db.Column(db.Text, nullable=False)
     author_id = db.Column(db.Integer, db.ForeignKey('authors.id'), nullable=False)
+    image_url = db.Column(db.String(255))
 
     author = db.relationship('Author', backref='books')
 
     def serialize(self):
-        return {'id': self.id, 'title': self.title, 'review': self.review}
+        return {'id': self.id, 'title': self.title, 'review': self.review, 'image_url': self.image_url}
 
 class Category(db.Model, SerializerMixin):
     __tablename__ = 'categories'
