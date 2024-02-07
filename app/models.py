@@ -39,7 +39,10 @@ class Author(db.Model, SerializerMixin):
 
     id=db.Column(db.Integer, primary_key=True)
     name=db.Column(db.String(150),nullable=False)
+    book_id=db.Column(db.Integer,db.ForeignKey('book.id'), nullable=False)
+    category_id=db.Column(db.Integer,db.ForeignKey('category.id'), nullable=False)
     nationality=db.Column(db.String(150),nullable=False)
+
 
     def serialize(self):
         return{'id':self.id, 'name':self.name, 'nationality':self.nationality}

@@ -6,7 +6,7 @@ from flask_restful import Resource, Api
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///book_reviews.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
@@ -35,7 +35,22 @@ class BooksById(Resource):
         book_dict= books.serialize()
         response= make_response(jsonify(book_dict),200)
         return response
+   def delete(self):
+     data= request.get_json()
+     title=data.get('title')
+     review=data.get('review')
+     book_id = Category.query.get(id)
+     if not book_id:
+        return {'error':'id not found'}
+     else:
+        book_id.title=title
+        book_id.review= review
+
+        db.session.delete()
+        response=make_response(jsonify(book_id.serialize()),201)
+        return response
 api.add_resource(BooksById, '/heroes/<int:id>')
+
 
 class Category(Resource):
    def get(self):
@@ -69,6 +84,27 @@ class CategoriesById(Resource):
         response=make_response(jsonify(category_id.serialize()),201)
         return response
 api.add_resource(CategoriesById,'/categories/<int:id>')
+
+class Authors(Resource):
+   def post(self):
+      data=request.get_json()
+      name=data.get('name')
+      nationality=data.get('nationality')
+      book_id=data.get('book_id')
+      category_id=data.get('category_id')
+
+      new_data=Author(name=name,nationality=nationality,book_id=book_id,category_id=category_id)
+      db.session.add(new_data)
+      db.session.commit()
+
+      response=make_response(jsonify(new_data.serialize()),200)
+      return response
+api.add_resource(Authors,'/author')
+
+if __name__ =='__main__':
+   app.run(port=5555)
+
+   
 
 
 
