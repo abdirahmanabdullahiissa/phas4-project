@@ -20,4 +20,9 @@ const App = () => {
         <Route path="/submit-book">
           <SubmitBook />
         </Route>
+        <Route path="/review/:bookId">
+          <ReviewForm />
+        </Route>
+         
+        
 
