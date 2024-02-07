@@ -26,6 +26,9 @@ const App = () => {
         <Route exact path="/forum">
           <CommunityForum />
         </Route>
+        <Route path="/create-post">
+          <PostForm />
+        </Route>
          
         
 
