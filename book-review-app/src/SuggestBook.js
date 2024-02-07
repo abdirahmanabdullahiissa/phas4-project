@@ -14,3 +14,18 @@ const SubmitBook = () => {
         },
         body: JSON.stringify({ title, author }),
       });
+      if (response.ok) {
+        // Book submitted successfully
+        console.log('Book submitted successfully');
+        // Reset form fields
+        setTitle('');
+        setAuthor('');
+      } else {
+        // Handle error if needed
+        console.error('Error submitting book');
+      }
+    } catch (error) {
+        // Handle error if needed
+        console.error('Error submitting book', error);
+      }
+    };
