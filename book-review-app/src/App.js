@@ -7,4 +7,11 @@ import SubmitBook from './components/SubmitBook';
 import ReviewForm from './components/ReviewForm';
 import CommunityForum from './components/CommunityForum';
 import PostForm from './components/PostForm';
+const App = () => {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <BookList />
+        </Route>
 
