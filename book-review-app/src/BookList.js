@@ -20,4 +20,11 @@ const BookList = () => {
           setIsLoading(false);
         }
       };
+      fetchBooks();
+    }, []);
+  
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+  
 
