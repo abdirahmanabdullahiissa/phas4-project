@@ -42,3 +42,19 @@ const SubmitBook = () => {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </div>
+            <div>
+          <label htmlFor="author">Author:</label>
+          <input
+            type="text"
+            id="author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+        </div>
+        <button type="submit">Submit Book</button>
+      </form>
+    </div>
+  );
+};
+
+export default SubmitBook;
