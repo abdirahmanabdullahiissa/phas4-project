@@ -17,4 +17,7 @@ const App = () => {
         <Route path="/book/:id">
           <BookDetails />
         </Route>
+        <Route path="/submit-book">
+          <SubmitBook />
+        </Route>
 
