@@ -14,11 +14,9 @@ const BookDetails = () => {
           const data = await response.json();
           setBook(data);
         } else {
-          // Handle error cases
           console.error('Failed to fetch book details');
         }
       } catch (error) {
-        // Handle fetch error
         console.error('Error fetching book details:', error);
       }
     };

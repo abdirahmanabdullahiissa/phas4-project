@@ -1,16 +1,16 @@
-// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BookList from './components/BookList';
 import BookDetails from './components/BookDetails';
-import SubmitBook from './components/SubmitBook';
+import SubmitBook from './components/SuggestBook';
 import ReviewForm from './components/ReviewForm';
 import CommunityForum from './components/CommunityForum';
 import PostForm from './components/PostForm';
+
 const App = () => {
   return (
     <Router>
-      <Switch>
+      <Routes>
         <Route exact path="/">
           <BookList />
         </Route>
@@ -29,11 +29,9 @@ const App = () => {
         <Route path="/create-post">
           <PostForm />
         </Route>
-        </Switch>
+      </Routes>
     </Router>
   );
 };
 
 export default App;
-        
-
