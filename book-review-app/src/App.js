@@ -23,6 +23,9 @@ const App = () => {
         <Route path="/review/:bookId">
           <ReviewForm />
         </Route>
+        <Route exact path="/forum">
+          <CommunityForum />
+        </Route>
          
         
 
