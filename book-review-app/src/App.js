@@ -1,37 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BookList from './components/BookList';
-import BookDetails from './components/BookDetails';
-import SubmitBook from './components/SuggestBook';
-import ReviewForm from './components/ReviewForm';
-import CommunityForum from './components/CommunityForum';
-import PostForm from './components/PostForm';
+import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './Navbar';
+import BookList from './BookList';
+import Search from './Search';
+import BookDetails from './BookDetails';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <Routes>
-        <Route exact path="/">
-          <BookList />
-        </Route>
-        <Route path="/book/:id">
-          <BookDetails />
-        </Route>
-        <Route path="/submit-book">
-          <SubmitBook />
-        </Route>
-        <Route path="/review/:bookId">
-          <ReviewForm />
-        </Route>
-        <Route exact path="/forum">
-          <CommunityForum />
-        </Route>
-        <Route path="/create-post">
-          <PostForm />
-        </Route>
-      </Routes>
+      <div className="App">
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <BookList />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/books/:id">
+            <BookDetails />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
-};
+}
 
 export default App;
