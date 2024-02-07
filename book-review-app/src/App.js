@@ -29,6 +29,11 @@ const App = () => {
         <Route path="/create-post">
           <PostForm />
         </Route>
-         
+        </Switch>
+    </Router>
+  );
+};
+
+export default App;
         
 
