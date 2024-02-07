@@ -29,3 +29,16 @@ const SubmitBook = () => {
         console.error('Error submitting book', error);
       }
     };
+    return (
+        <div>
+          <h1>Submit a New Book</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
