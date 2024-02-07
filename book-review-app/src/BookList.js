@@ -13,4 +13,11 @@ const BookList = () => {
               setBooks(data);
             } else {
                 setError('Error fetching books');
+            }
+        } catch (error) {
+          setError('Error fetching books');
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
