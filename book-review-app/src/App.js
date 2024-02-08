@@ -45,6 +45,7 @@ const App = () => {
 
   return (
     <div className="app">
+      
       <h1>Book Reviews</h1>
       <Search onSearch={handleSearch} /> {/* Search component placed here */}
       {loading && <p>Loading...</p>}

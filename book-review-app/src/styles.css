@@ -1,62 +1,26 @@
+User
 /* styles.css */
 
-/* Body styles */
 body {
   font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 0;
 }
 
-/* App container styles */
 .app {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-/* Background image */
-.app {
-  background-image: url('assets/backgroundImage/book-library.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* Heading styles */
-h1 {
-  text-align: center;
-  color: #333; /* Dark gray color */
-}
-
-/* Search component styles */
-.search {
-  margin-bottom: 20px;
-}
-
-.search input[type="text"] {
-  width: calc(100% - 100px); /* Adjust width as needed */
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  /* Background image */
+  background-image: url('https://images.unsplash.com/photo-1551818255-efb6df045f09'); /* Replace 'your-background-image-url.jpg' with the URL of your background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
 }
 
-.search button {
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.search button:hover {
-  background-color: #0056b3; /* Darker shade of blue on hover */
-}
-
-/* Book list styles */
 .book-list {
   margin-bottom: 20px;
 }
@@ -73,17 +37,15 @@ h1 {
 .book-list li {
   cursor: pointer;
   padding: 10px;
-  background-color: #f9f9f9; /* Light gray background */
-  border-radius: 5px;
+  background-color: #f4f4f4;
   margin-bottom: 5px;
   transition: background-color 0.3s;
 }
 
 .book-list li:hover {
-  background-color: #e0e0e0; /* Lighter gray background on hover */
+  background-color: #e0e0e0;
 }
 
-/* Book details styles */
 .book-details {
   margin-bottom: 20px;
 }
@@ -104,7 +66,6 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Add review form styles */
 .add-review-form {
   margin-bottom: 20px;
 }
@@ -124,24 +85,32 @@ h1 {
 }
 
 .add-review-form button {
-  background-color: #007bff; /* Blue color */
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .add-review-form button:hover {
-  background-color: #0056b3; /* Darker shade of blue on hover */
+  background-color: #0056b3;
+}
+/* Add these styles to your styles.css file */
+.search form button {
+  padding: 8px 16px; /* Adjust padding as needed */
+  background-color: #007bff; /* Blue color, adjust as needed */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* Star rating styles */
+.search form button:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover, adjust as needed */
+}
+/* styles.css */
 .star-rating {
-  font-size: 24px;
-}
-
-.star-container:hover .star {
-  color: #f1c40f; /* Yellow color on hover */
+  font-size: 24px; /* Adjust size as needed */
 }
 
 .star {
@@ -149,74 +118,43 @@ h1 {
 }
 
 .star.filled {
-  color: #ffc107; /* Yellow color for filled star */
+  color: #ffc107; /* Color of filled star */
+}
+/* styles.css */
+.star-rating {
+  font-size: 24px; /* Adjust size as needed */
 }
 
-/* Footer styles */
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  color: #666; /* Gray color */
+.star {
+  color: #aaa; /* Default color of empty star */
 }
 
-/* Additional styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.star.filled {
+  color: #ffc107; /* Color of filled star */
 }
 
-.section {
-  margin-bottom: 40px;
+.star:hover {
+  color: #f1c40f; /* Change color on hover, adjust as needed */
+}
+/* styles.css */
+.star-rating {
+  font-size: 24px; /* Adjust size as needed */
 }
 
-/* Button styles */
-.btn {
-  padding: 10px 20px;
-  background-color: #007bff; /* Blue color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.star-container:hover .star {
+  color: #f1c40f; /* Change color of all stars on hover */
 }
 
-.btn:hover {
-  background-color: #0056b3; /* Darker shade of blue on hover */
+.star {
+  color: #aaa; /* Default color of empty star */
 }
 
-/* Form styles */
-.form-group {
-  margin-bottom: 20px;
+.star.filled {
+  color: #ffc107; /* Color of filled star */
 }
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
+/* styles.css */
+body {
+  background-image: url('assets/backgroundImage/book-library.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+  background-size: cover; /* Cover the entire background */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
 }
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Typography styles */
-h2 {
-  color: #333; /* Dark gray color */
-}
-
-p {
-  line-height: 1.5;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .app {
-    padding: 10px;
-  }
-}
-
-

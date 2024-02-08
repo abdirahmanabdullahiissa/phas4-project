@@ -16,25 +16,22 @@ const StarRating = ({ rating, onRate }) => {
     onRate(selectedRating);
   };
 
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    const filled = (hoveredRating !== null ? i <= hoveredRating : i <= rating);
-    stars.push(
-      <span
-        key={i}
-        className={`star ${filled ? 'filled' : ''}`}
-        onMouseOver={() => handleMouseOver(i)}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => handleClick(i)}
-      >
-        &#9733;
-      </span>
-    );
-  }
-
   return (
     <div className="star-rating star-container">
-      {stars}
+      {[1, 2, 3, 4, 5].map((i) => {
+        const filled = i <= (hoveredRating !== null ? hoveredRating : rating);
+        return (
+          <span
+            key={i}
+            className={`star ${filled ? 'filled' : ''}`}
+            onMouseOver={() => handleMouseOver(i)}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => handleClick(i)}
+          >
+            &#9733;
+          </span>
+        );
+      })}
     </div>
   );
 };
