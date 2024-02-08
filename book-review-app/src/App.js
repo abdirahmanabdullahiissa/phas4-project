@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/NavBar/Navbar';
 import BookList from './components/BookList';
-import Search from './components/Search';
-import BookDetails from './components/BookDetails';
+import Search from './components/SearchForm/Search';
+import BookDetails from './components/BookDetails/BookDetails';
 
 function App() {
   return (
