@@ -16,6 +16,11 @@ class Book(db.Model, SerializerMixin):
 
     def serialize(self):
         return {'id': self.id, 'title': self.title, 'review': self.review, 'image_url': self.image_url}
+    @validates('title')
+    def validate_title(self, key, title):
+        if not title:
+            raise ValueError('Title cannot be empty')
+        return title
 
 class Category(db.Model, SerializerMixin):
     __tablename__ = 'categories'
@@ -30,6 +35,11 @@ class Category(db.Model, SerializerMixin):
 
     def serialize(self):
         return {'id': self.id, 'name': self.name, 'description': self.description, 'genre':self.genre}
+    @validates('name')
+    def validate_name(self, key, name):
+        if not name:
+            raise ValueError('Name cannot be empty')
+        return name
 
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
