@@ -39,10 +39,12 @@ class BooksById(Resource):
     def delete(self, id):
         book = Book.query.get(id)
         if not book:
-            return {'error': 'Book not found'}, 404
-        db.session.delete(book)
-        db.session.commit()
-        return jsonify(book.serialize()), 201
+            return{'error':'book id cannot be found'}, 404
+        else:
+            db.session.delete(book)
+            db.session.commit()
+            response=make_response(jsonify({"message":"Record deleted successfully"}), 200)
+            return response
 
 api.add_resource(BooksById, '/books/<int:id>')
 
@@ -63,29 +65,40 @@ class CategoriesById(Resource):
 
     def patch(self, id):
         data = request.get_json()
-        name = data.get('name')
-        description = data.get('description')
-        genre = data.get('genre')
+        name = data['name']
+        description = data['description']
+        genre = data['genre']
         category = Category.query.get(id)
         if not category:
             return {'error': 'Category not found'}, 404
-        category.name = name
-        category.description = description
-        category.genre = genre
-        db.session.commit()
-        return jsonify(category.serialize()), 201
+        else:
+            category.name = name
+            category.description = description
+            category.genre = genre
+            db.session.commit()
+
+            response = make_response(jsonify(category.serialize()),200)
+            return response
+
+            # response=make_response(jsonify(category.serialize()),200)
+            # return response
 
 api.add_resource(CategoriesById, '/categories/<int:id>')
 
 class Authors(Resource):
     def post(self):
         data = request.get_json()
-        name = data.get('name')
-        nationality = data.get('nationality')
+        name = data["name"]
+        nationality = data["nationality"]
+
+        if not Author:
+            return {"error":"Author cannot be found"},400
+        
         new_data = Author(name=name, nationality=nationality)
         db.session.add(new_data)
         db.session.commit()
-        return jsonify(new_data.serialize()), 200
+        response=make_response (jsonify(new_data.serialize()), 201)
+        return response
 
 api.add_resource(Authors, '/authors')
 
