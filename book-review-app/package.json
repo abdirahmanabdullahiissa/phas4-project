@@ -11,11 +11,12 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
+    "stream-http": "^3.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "proxy":"http://127.0.0.1:5555",
+    "proxy": "http://127.0.0.1:5555",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

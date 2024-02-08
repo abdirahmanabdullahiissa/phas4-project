@@ -1,0 +1,96 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  /* Background image */
+  background-image: url('https://images.unsplash.com/photo-1551818255-efb6df045f09'); /* Replace 'your-background-image-url.jpg' with the URL of your background image */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+}
+
+.book-list {
+  margin-bottom: 20px;
+}
+
+.book-list h2 {
+  margin-bottom: 10px;
+}
+
+.book-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.book-list li {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f4f4f4;
+  margin-bottom: 5px;
+  transition: background-color 0.3s;
+}
+
+.book-list li:hover {
+  background-color: #e0e0e0;
+}
+
+.book-details {
+  margin-bottom: 20px;
+}
+
+.book-details h2 {
+  margin-bottom: 10px;
+}
+
+.book-details p {
+  margin-bottom: 10px;
+}
+
+.book-details img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-review-form {
+  margin-bottom: 20px;
+}
+
+.add-review-form h2 {
+  margin-bottom: 10px;
+}
+
+.add-review-form input,
+.add-review-form textarea,
+.add-review-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-review-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-review-form button:hover {
+  background-color: #0056b3;
+}
