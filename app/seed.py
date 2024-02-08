@@ -1,4 +1,4 @@
-from models import db, Book, Author
+from models import db, Book, Author,Category
 from app import app
 
 with app.app_context():
@@ -9,6 +9,8 @@ with app.app_context():
 
     # Delete existing records in the authors table
     db.session.query(Author).delete()
+    # Delete existing records in the category table
+    db.session.query(Category).delete()
 
     db.session.commit()
     print("🗑️ Existing seed data removed.")
@@ -39,6 +41,19 @@ with app.app_context():
     for book_data in books_data:
         book = Book(**book_data)
         db.session.add(book)
+    db.session.commit()
+
+
+    categories_data = [
+        {"name": "To kill a Mockingbird", "description": "Timeless literary works", "genre": "Thriller","author_id":1},
+        {"name": "1984" , "description": "Dangers of totalitaranism", "genre": "Dystopian","author_id":2},
+        {"name": "The Great Gatsby", "description": "Books portraying a nightmare world", "genre": "Dystopian","author_id":3},
+        {"name": "Pride and Prejudice", "description": "Books focused on romantic relationships", "genre": "Romance","author_id":4},
+        {"name": "Harry Potter and the Sorcerer's Stone", "description": "Books with elements of magic and fantasy", "genre": "Fantasy","author_id":5},
+    ]
+    for category_data in categories_data:
+        category=Category(**category_data)
+        db.session.add(category)
     db.session.commit()
 
     print("📚 Done seeding!")

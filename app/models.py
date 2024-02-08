@@ -29,7 +29,7 @@ class Category(db.Model, SerializerMixin):
     author = db.relationship('Author', backref='categories')
 
     def serialize(self):
-        return {'id': self.id, 'name': self.name, 'description': self.description}
+        return {'id': self.id, 'name': self.name, 'description': self.description, 'genre':self.genre}
 
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
