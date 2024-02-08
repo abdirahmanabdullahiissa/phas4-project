@@ -1,0 +1,32 @@
+/* App.css */
+.App {
+  text-align: center;
+}
+
+/* Navbar.css */
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* LandingPage.css */
+.landing-page {
+  text-align: center;
+  margin-top: 50px;
+}
