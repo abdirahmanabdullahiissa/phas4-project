@@ -10,7 +10,7 @@ const Header = () => {
             <Navbar />
             <div className='header-content flex flex-c text-center text-white'>
                 <h2 className='header-title text-capitalize'>find your book of choice.</h2><br />
-                <p className='header-text fs-18 fw-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam beatae sapiente quibusdam consequatur perspiciatis facere laboriosam non nesciunt at id repudiandae, modi iste? Eligendi, rerum!</p>
+                <p className='header-text fs-18 fw-3'>Ah, discovering the perfect book is a bit like stumbling upon a soul mate, isn't it? Picture this: you're browsing through the shelves, and suddenly, you lock eyes with a book that seems to speak directly to your heart. It's like finding a kindred spirit in literary form.So here's to the quest for the perfect book – may we never stop searching, never stop exploring, and never stop falling in love with the magic of storytelling. After all, finding a book that speaks to your soul is a love story unlike any other.</p>
                 <SearchForm />
             </div>
         </header>
