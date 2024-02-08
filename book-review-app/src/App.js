@@ -1,27 +1,21 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './Navbar';
-import BookList from './BookList';
-import Search from './Search';
-import BookDetails from './BookDetails';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import BookList from './components/BookList';
+import Search from './components/Search';
+import BookDetails from './components/BookDetails';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <BookList />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/books/:id">
-            <BookDetails />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<BookList />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/books/:id" element={<BookDetails />} />
+        </Routes>
       </div>
     </Router>
   );
