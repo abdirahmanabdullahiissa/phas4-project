@@ -13,7 +13,7 @@ function SearchForm({ onSubmit }) {
     onSubmit(query);
   };
 
-  // Remove the invalid flag \g from the regular expression
+  // Removed the invalid flag 'g' from the regular expression
   const regex = /^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/;
 
   return (

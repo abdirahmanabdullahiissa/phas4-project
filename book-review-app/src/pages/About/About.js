@@ -16,8 +16,8 @@ const About = () => {
           </div>
           <div className='about-text'>
             <h2 className='about-title fs-26 ls-1'>About BookHub</h2>
-            <p className='fs-17'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos consequuntur vero commodi provident maiores, iusto atque corrupti voluptate vel sequi consectetur unde aliquam corporis saepe animi non, tempora reiciendis molestias sed laudantium dolores. Assumenda aperiam fuga quo voluptate commodi ullam aliquam expedita voluptas delectus.</p>
-            <p className='fs-17'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, dicta, possimus inventore eveniet atque voluptatibus repellendus aspernatur illo aliquam dignissimos illum. Commodi, porro omnis dolore amet neque modi quas eum!</p>
+            <p className='fs-17'>Welcome to READY APP, your go-to platform for book enthusiasts to delve into the world of literature, share their thoughts, and connect with fellow readers. Whether you're an ardent bibliophile, a curious reader, or simply seeking your next literary adventure, READY APP is your trusted companion in your pursuit of literary exploration.</p>
+            <p className='fs-17'>Join our community of passionate readers today and experience the joy of reading like never before!</p>
           </div>
         </div>
       </div>

@@ -1,38 +1,23 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useCallback } from 'react';
-const URL = "http://openlibrary.org/search.json?title=";
+const URL = "http://localhost:5555"; // Update the URL to match your Flask backend's address
 const AppContext = React.createContext();
 
-const AppProvider = ({children}) => {
-    const [searchTerm, setSearchTerm] = useState("the lost world");
+const AppProvider = ({ children }) => {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [resultTitle, setResultTitle] = useState("");
 
-    const fetchBooks = useCallback(async() => {
+    const fetchBooks = useCallback(async () => {
         setLoading(true);
-        try{
-            const response = await fetch(`${URL}${searchTerm}`);
+        try {
+            const response = await fetch(`${URL}/books`);
             const data = await response.json();
-            const {docs} = data;
 
-            if(docs){
-                const newBooks = docs.slice(0, 20).map((bookSingle) => {
-                    const {key, author_name, cover_i, edition_count, first_publish_year, title} = bookSingle;
+            if (Array.isArray(data)) {
+                setBooks(data);
 
-                    return {
-                        id: key,
-                        author: author_name,
-                        cover_id: cover_i,
-                        edition_count: edition_count,
-                        first_publish_year: first_publish_year,
-                        title: title
-                    }
-                });
-
-                setBooks(newBooks);
-
-                if(newBooks.length > 1){
+                if (data.length > 0) {
                     setResultTitle("Your Search Result");
                 } else {
                     setResultTitle("No Search Result Found!")
@@ -42,19 +27,19 @@ const AppProvider = ({children}) => {
                 setResultTitle("No Search Result Found!");
             }
             setLoading(false);
-        } catch(error){
+        } catch (error) {
             console.log(error);
             setLoading(false);
         }
-    }, [searchTerm]);
+    }, []);
 
     useEffect(() => {
         fetchBooks();
-    }, [searchTerm, fetchBooks]);
+    }, [fetchBooks]);
 
     return (
-        <AppContext.Provider value = {{
-            loading, books, setSearchTerm, resultTitle, setResultTitle,
+        <AppContext.Provider value={{
+            loading, books, setResultTitle,
         }}>
             {children}
         </AppContext.Provider>
@@ -65,4 +50,4 @@ export const useGlobalContext = () => {
     return useContext(AppContext);
 }
 
-export {AppContext, AppProvider};
+export { AppContext, AppProvider };

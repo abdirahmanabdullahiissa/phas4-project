@@ -1,24 +1,37 @@
-import React from 'react';
-import { useGlobalContext } from '../../context';
-import Book from "../BookList/Book";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Loading from "../Loader/Loader";
+import Book from "../BookList/Book";
 import coverImg from "../../images/cover_not_found.jpg";
 import "./BookList.css";
 
-//https://covers.openlibrary.org/b/id/240727-S.jpg
+const API_URL = "http://localhost:5555/books"; // Update with your Flask backend endpoint
 
 const BookList = () => {
-  const {books, loading, resultTitle} = useGlobalContext();
-  const booksWithCovers = books.map((singleBook) => {
-    return {
-      ...singleBook,
-      // removing /works/ to get only id
-      id: (singleBook.id).replace("/works/", ""),
-      cover_img: singleBook.cover_id ? `https://covers.openlibrary.org/b/id/${singleBook.cover_id}-L.jpg` : coverImg
-    }
-  });
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [resultTitle, setResultTitle] = useState('');
+  const navigate = useNavigate();
 
-  if(loading) return <Loading />;
+  useEffect(() => {
+    setLoading(true);
+    async function fetchBooks() {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        console.log(data);
+        setBooks(data);
+        setLoading(false);
+        setResultTitle('Book List'); // Set a default title
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+      }
+    }
+    fetchBooks();
+  }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <section className='booklist'>
@@ -28,16 +41,14 @@ const BookList = () => {
         </div>
         <div className='booklist-content grid'>
           {
-            booksWithCovers.slice(0, 30).map((item, index) => {
-              return (
-                <Book key = {index} {...item} />
-              )
-            })
+            books.map((item, index) => (
+              <Book key={index} {...item} />
+            ))
           }
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default BookList
+export default BookList;
