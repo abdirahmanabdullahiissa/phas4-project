@@ -7,8 +7,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5555/"}})
 
-CORS(app)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///book_reviews.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
